@@ -47,7 +47,14 @@
 &lt;configuration&gt;
 &lt;configSections&gt;
 &lt;section name="MailChimpServiceSettings" type="MailChimp.Net.Settings.MailChimpServiceConfiguration, MailChimp.Net.Settings" /&gt;
-</pre>
+&lt;/configSections&gt;
+&lt;MailChimpServiceSettings
+apiKey="testapikey-us7"
+subscriberListId="testlistid"
+serviceUrl="<a href="https://us7.api.mailchimp.com/2.0/">https://us7.api.mailchimp.com/2.0/</a>"
+listsRelatedSection="lists"
+helperRelatedSection="helper"/&gt;
+&lt;/configuration&gt;<pre></pre></pre>
 </li>
 <li>
 <p>Code example to subscribe a newsletter with the given groupings and merge vars</p>
