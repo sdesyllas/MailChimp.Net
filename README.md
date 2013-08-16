@@ -7,18 +7,19 @@
 
 1. Add the dlls to your project
 2. Add the following links in your configuration file
-`
-<configuration>
-  <configSections>
-    <section name="MailChimpServiceSettings" type="MailChimp.Net.Settings.MailChimpServiceConfiguration, MailChimp.Net.Settings" />
-  </configSections>
-  <MailChimpServiceSettings
+<pre>
+
+&lt;configuration&gt;
+  &lt;configSections&gt;
+    &lt;section name="MailChimpServiceSettings" type="MailChimp.Net.Settings.MailChimpServiceConfiguration, MailChimp.Net.Settings" />
+  </configSections&gt;
+  &lt;MailChimpServiceSettings
     apiKey="testapikey-us7"
     subscriberListId="testlistid"
     serviceUrl="https://us7.api.mailchimp.com/2.0/"
     listsRelatedSection="lists"
-    helperRelatedSection="helper"/>
-</configuration>`
+    helperRelatedSection="helper"/&gt;
+&lt;/configuration&gt;<pre>
 
 3. Code example to subscribe a newsletter with the given groupings and merge vars
 
