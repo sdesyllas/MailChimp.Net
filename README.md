@@ -6,7 +6,7 @@
 
 
 1. Add the dlls to your project
-2. Add the following links in your configuration file
+2. Add the following lines in your configuration file
 <pre>
 &lt;configuration&gt;
   &lt;configSections&gt;
