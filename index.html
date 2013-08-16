@@ -59,7 +59,9 @@ helperRelatedSection="helper"/&gt;
 <li>
 <p>Code example to subscribe a newsletter with the given groupings and merge vars</p>
 
-<pre><code>        var subscribeSources = new Grouping {Name = "Subscribe Source"};
+<pre><code>        IMailChimpApiService mailChimpApiService = new MailChimpApiService(MailChimpServiceConfiguration.Settings.ApiKey);
+
+        var subscribeSources = new Grouping {Name = "Subscribe Source"};
         subscribeSources.Groups.Add("Site");
 
         var couponsGained = new Grouping {Name = "Coupons Gained"};
@@ -76,7 +78,7 @@ helperRelatedSection="helper"/&gt;
                 {"COUNTRY", "Greece"}
             };
 
-        var response = mailChimpApiService.Subscribe(String.Format(emailPattern, i), new List&lt;Grouping&gt;() { subscribeSources, couponsGained, interests }, fields);
+        var response = mailChimpApiService.Subscribe("test@domain.com", new List&lt;Grouping&gt;() { subscribeSources, couponsGained, interests }, fields);
 </code></pre>
 </li>
 </ol>
