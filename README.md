@@ -21,7 +21,9 @@
 &lt;/configuration&gt;<pre>
 
 3. Code example to subscribe a newsletter with the given groupings and merge vars
-
+                
+                IMailChimpApiService mailChimpApiService = new MailChimpApiService(MailChimpServiceConfiguration.Settings.ApiKey);
+                
                 var subscribeSources = new Grouping {Name = "Subscribe Source"};
                 subscribeSources.Groups.Add("Site");
 
@@ -40,4 +42,4 @@
                         {"COUNTRY", "Greece"}
                     };
 
-                var response = mailChimpApiService.Subscribe(String.Format(emailPattern, i), new List<Grouping>() { subscribeSources, couponsGained, interests }, fields);
+                var response = mailChimpApiService.Subscribe("test@domain.com", new List<Grouping>() { subscribeSources, couponsGained, interests }, fields);
