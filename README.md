@@ -11,7 +11,7 @@
 &lt;configuration&gt;
   &lt;configSections&gt;
     &lt;section name="MailChimpServiceSettings" type="MailChimp.Net.Settings.MailChimpServiceConfiguration, MailChimp.Net.Settings" />
-  </configSections&gt;
+  &lt;/configSections&gt;
   &lt;MailChimpServiceSettings
     apiKey="testapikey-us7"
     subscriberListId="testlistid"
