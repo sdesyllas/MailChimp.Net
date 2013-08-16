@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailChimp.Net.Tests", "MailChimp.Net.Tests\MailChimp.Net.Tests.csproj", "{118E3BCD-2AC0-406A-8B52-154C927F8478}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailChimp.Net.Settings", "MailChimp.Net.Settings\MailChimp.Net.Settings.csproj", "{23A81B3C-0F2A-4023-8ACD-B4A63C839CAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailChimp.Net.Api", "MailChimp.Net.Api\MailChimp.Net.Api.csproj", "{42F8CCCF-E737-4D72-ACE2-081A37E58B14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{118E3BCD-2AC0-406A-8B52-154C927F8478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{118E3BCD-2AC0-406A-8B52-154C927F8478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{118E3BCD-2AC0-406A-8B52-154C927F8478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{118E3BCD-2AC0-406A-8B52-154C927F8478}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23A81B3C-0F2A-4023-8ACD-B4A63C839CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23A81B3C-0F2A-4023-8ACD-B4A63C839CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23A81B3C-0F2A-4023-8ACD-B4A63C839CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23A81B3C-0F2A-4023-8ACD-B4A63C839CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42F8CCCF-E737-4D72-ACE2-081A37E58B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42F8CCCF-E737-4D72-ACE2-081A37E58B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42F8CCCF-E737-4D72-ACE2-081A37E58B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42F8CCCF-E737-4D72-ACE2-081A37E58B14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
