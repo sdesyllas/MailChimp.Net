@@ -4,13 +4,30 @@
 
 .Net 4 wrapper Library for MailChimp newsletter API v2
 
-Example use
+
+1. Add the dlls to your project
+2. Add the following links in your configuration file
+
+
+<configuration>
+  <configSections>
+    <section name="MailChimpServiceSettings" type="MailChimp.Net.Settings.MailChimpServiceConfiguration, MailChimp.Net.Settings" />
+  </configSections>
+  <MailChimpServiceSettings
+    apiKey="testapikey-us7"
+    subscriberListId="testlistid"
+    serviceUrl="https://us7.api.mailchimp.com/2.0/"
+    listsRelatedSection="lists"
+    helperRelatedSection="helper"/>
+</configuration>
+
+3. Code example to subscribe a newsletter with the given groupings and merge vars
 
                 var subscribeSources = new Grouping {Name = "Subscribe Source"};
-                subscribeSources.Groups.Add("Coupon");
+                subscribeSources.Groups.Add("Site");
 
                 var couponsGained = new Grouping {Name = "Coupons Gained"};
-                couponsGained.Groups.Add("WIN10");
+                couponsGained.Groups.Add("Coupon1");
 
                 var interests = new Grouping {Name = "Interests"};
                 interests.Groups.Add("Extreme Games");
@@ -24,4 +41,4 @@ Example use
                         {"COUNTRY", "Greece"}
                     };
 
-                var response = mailChimpApiService.Subscribe("testemail@domain.com", new List<Grouping>() { subscribeSources, couponsGained, interests }, fields);
+                var response = mailChimpApiService.Subscribe(String.Format(emailPattern, i), new List<Grouping>() { subscribeSources, couponsGained, interests }, fields);
