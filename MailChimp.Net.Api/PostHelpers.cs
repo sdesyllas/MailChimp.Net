@@ -11,7 +11,7 @@ namespace MailChimp.Net.Api
     {
         public static string PostJson(string url, string data)
         {
-            var bytes = Encoding.Default.GetBytes(data);
+            var bytes = Encoding.UTF8.GetBytes(data);
 
             using (var client = new WebClient())
             {
