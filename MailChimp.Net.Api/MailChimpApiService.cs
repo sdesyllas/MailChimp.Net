@@ -60,21 +60,21 @@ namespace MailChimp.Net.Api
             return serviceResponse;
         }
 
-        public ServiceResponse Subscribe(string email)
+        public ServiceResponse Subscribe(string email, bool doubleOptIn)
         {
-            var res = Subscribe(email, null, null);
+            var res = Subscribe(email, null, null, doubleOptIn);
             return res;
         }
 
 
-        private ServiceResponse SubscribeWithMergeVars(string email, dynamic mergeVars)
+        private ServiceResponse SubscribeWithMergeVars(string email, dynamic mergeVars, bool enableDoubleOptIn)
         {
             ServiceResponse serviceResponse = new ServiceResponse();
             var urlTemplate = String.Format("{0}{1}/subscribe.json/", MailChimpServiceConfiguration.Settings.ServiceUrl,
                                             MailChimpServiceConfiguration.Settings.ListsRelatedSection);
 
             var subscriber = new Subscriber();
-
+            subscriber.DoubleOptIn = enableDoubleOptIn;
             subscriber.ApiKey = _apiKey;
             subscriber.ListId = MailChimpServiceConfiguration.Settings.SubscriberListId;
             var emailObject = new Email { EmailValue = email };
@@ -109,7 +109,7 @@ namespace MailChimp.Net.Api
             return serviceResponse;
         }
 
-        public ServiceResponse Subscribe(string email, List<Grouping> groupings, Dictionary<string, string> fields)
+        public ServiceResponse Subscribe(string email, List<Grouping> groupings, Dictionary<string, string> fields, bool enableDoubleOptIn)
         {
             dynamic mergeVars = new Dictionary<string, Object>();
             mergeVars.Add("groupings", groupings);
@@ -120,7 +120,7 @@ namespace MailChimp.Net.Api
                 //http://stackoverflow.com/questions/4938397/dynamically-adding-properties-to-an-expandoobject
                 mergeVars.Add(nameValue.Key, nameValue.Value);
             }
-            var response = this.SubscribeWithMergeVars(String.Format(email), mergeVars);
+            var response = this.SubscribeWithMergeVars(String.Format(email), mergeVars, enableDoubleOptIn);
 
             return response;
         }

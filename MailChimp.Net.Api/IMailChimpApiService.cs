@@ -12,9 +12,9 @@ namespace MailChimp.Net.Api
     {
         ServiceResponse PingMailChimpServer();
 
-        ServiceResponse Subscribe(string email);
+        ServiceResponse Subscribe(string email, bool enableDoubleOptIn);
 
-        ServiceResponse Subscribe(string email, List<Grouping> groupings, Dictionary<string, string> field);
+        ServiceResponse Subscribe(string email, List<Grouping> groupings, Dictionary<string, string> field, bool enableDoubleOptIn);
 
         ServiceResponse Unsubscribe(string email);
     }
