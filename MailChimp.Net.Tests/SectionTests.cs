@@ -31,7 +31,7 @@ namespace MailChimp.Net.Tests
             IMailChimpApiService mailChimpApiService = new MailChimpApiService(MailChimpServiceConfiguration.Settings.ApiKey);
             for (int i = 0; i < numberOfEmails; i++)
             {
-                var response = mailChimpApiService.Subscribe(String.Format(emailPattern, i));
+                var response = mailChimpApiService.Subscribe(String.Format(emailPattern, i), false);
                 Console.WriteLine(response.ResponseJson);
                 Assert.AreEqual(true, response.IsSuccesful);
             }
@@ -61,7 +61,7 @@ namespace MailChimp.Net.Tests
                         {"COUNTRY", "Greece"}
                     };
 
-                var response = mailChimpApiService.Subscribe(String.Format(emailPattern, i), new List<Grouping>() { subscribeSources, couponsGained, interests }, fields);
+                var response = mailChimpApiService.Subscribe(String.Format(emailPattern, i), new List<Grouping>() { subscribeSources, couponsGained, interests }, fields, false);
                 Console.WriteLine(response.ResponseJson);
                 Assert.AreEqual(true, response.IsSuccesful);
             }
