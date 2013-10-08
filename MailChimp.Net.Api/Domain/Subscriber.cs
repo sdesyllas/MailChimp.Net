@@ -18,7 +18,7 @@ namespace MailChimp.Net.Api.Domain
 
         [JsonProperty("update_existing")]
         public bool UpdateExisting { get; set; }
-        
+     
         [JsonProperty("id")]
         public string ListId { get; set; }
 
