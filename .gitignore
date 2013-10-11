@@ -1,0 +1,11 @@
+MailChimp.Net.Api/bin/
+MailChimp.Net.Api/obj/
+MailChimp.Net.Settings/bin/
+MailChimp.Net.Settings/obj/
+MailChimp.Net.Tests/bin/Debug/MailChimp.Net.Api.dll
+MailChimp.Net.Tests/bin/Debug/MailChimp.Net.Api.pdb
+MailChimp.Net.Tests/bin/Debug/MailChimp.Net.Settings.dll
+MailChimp.Net.Tests/bin/
+MailChimp.Net.Tests/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+MailChimp.Net.Tests/obj/
+*.suo
