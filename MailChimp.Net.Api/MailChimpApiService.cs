@@ -67,7 +67,7 @@ namespace MailChimp.Net.Api
         }
 
 
-        private ServiceResponse SubscribeWithMergeVars(string email, dynamic mergeVars, bool enableDoubleOptIn)
+        private ServiceResponse SubscribeWithMergeVars(string email, string listId, dynamic mergeVars, bool enableDoubleOptIn)
         {
             ServiceResponse serviceResponse = new ServiceResponse();
             var urlTemplate = String.Format("{0}{1}/subscribe.json/", MailChimpServiceConfiguration.Settings.ServiceUrl,
@@ -76,7 +76,7 @@ namespace MailChimp.Net.Api
             var subscriber = new Subscriber();
             subscriber.DoubleOptIn = enableDoubleOptIn;
             subscriber.ApiKey = _apiKey;
-            subscriber.ListId = MailChimpServiceConfiguration.Settings.SubscriberListId;
+            subscriber.ListId = listId;
             var emailObject = new Email { EmailValue = email };
             subscriber.Email = emailObject;
             subscriber.UpdateExisting = true;
@@ -111,16 +111,28 @@ namespace MailChimp.Net.Api
 
         public ServiceResponse Subscribe(string email, List<Grouping> groupings, Dictionary<string, string> fields, bool enableDoubleOptIn)
         {
+            return Subscribe(email,
+                             MailChimpServiceConfiguration.Settings.SubscriberListId,
+                             groupings,
+                             fields,
+                             enableDoubleOptIn);
+        }
+
+        public ServiceResponse Subscribe(string email, string listId, List<Grouping> groupings, Dictionary<string, string> fields, bool enableDoubleOptIn)
+        {
             dynamic mergeVars = new Dictionary<string, Object>();
             mergeVars.Add("groupings", groupings);
 
-            foreach (var nameValue in fields)
+            if (fields != null)
             {
-                //Dynamically adding properties to an ExpandoObject
-                //http://stackoverflow.com/questions/4938397/dynamically-adding-properties-to-an-expandoobject
-                mergeVars.Add(nameValue.Key, nameValue.Value);
+                foreach (var nameValue in fields)
+                {
+                    //Dynamically adding properties to an ExpandoObject
+                    //http://stackoverflow.com/questions/4938397/dynamically-adding-properties-to-an-expandoobject
+                    mergeVars.Add(nameValue.Key, nameValue.Value);
+                }
             }
-            var response = this.SubscribeWithMergeVars(String.Format(email), mergeVars, enableDoubleOptIn);
+            var response = this.SubscribeWithMergeVars(String.Format(email), listId, mergeVars, enableDoubleOptIn);
 
             return response;
         }
