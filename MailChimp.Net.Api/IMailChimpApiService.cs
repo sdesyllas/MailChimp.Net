@@ -16,6 +16,8 @@ namespace MailChimp.Net.Api
 
         ServiceResponse Subscribe(string email, List<Grouping> groupings, Dictionary<string, string> field, bool enableDoubleOptIn);
 
+        ServiceResponse Subscribe(string email, string listId, List<Grouping> groupings, Dictionary<string, string> fields, bool enableDoubleOptIn);
+
         ServiceResponse Unsubscribe(string email);
     }
 }
