@@ -42,4 +42,4 @@
                         {"COUNTRY", "Greece"}
                     };
 
-                var response = mailChimpApiService.Subscribe("test@domain.com", new List<Grouping>() { subscribeSources, couponsGained, interests }, fields);
+                var response = mailChimpApiService.Subscribe("test@domain.com", new List() { subscribeSources, couponsGained, interests }, fields, true);
