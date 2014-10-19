@@ -161,7 +161,7 @@ namespace MailChimp.Net.Api
             try
             {
                 var responseData = PostHelpers.PostJson(urlTemplate, unsubscriber.ToString());
-                _log.DebugFormat("MailChimpService Call : {0}, response json : {1}", unsubscriber, deserializedData);
+                _log.DebugFormat("MailChimpService Call : {0}, response json : {1}", unsubscriber, responseData);
                 serviceResponse.IsSuccesful = true; //API docu states: reallistically this will always be true as errors will be thrown otherwise
                 serviceResponse.ResponseJson = responseData;
             }
