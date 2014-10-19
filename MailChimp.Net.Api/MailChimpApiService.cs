@@ -137,26 +137,32 @@ namespace MailChimp.Net.Api
             return response;
         }
 
+        
         public ServiceResponse Unsubscribe(string email)
+        {
+            return Unsubscribe(email, false, false, false);
+        }
+
+        public ServiceResponse Unsubscribe(string email, bool deleteMember, bool sendGoodbye, bool sendNotify)
         {
             ServiceResponse serviceResponse = new ServiceResponse();
             var urlTemplate = String.Format("{0}{1}/unsubscribe.json/", MailChimpServiceConfiguration.Settings.ServiceUrl,
                                             MailChimpServiceConfiguration.Settings.ListsRelatedSection);
 
-            var subscriber = new Subscriber();
+            var unsubscriber = new Unsubscriber();
 
-            subscriber.ApiKey = _apiKey;
-            subscriber.ListId = MailChimpServiceConfiguration.Settings.SubscriberListId;
+            unsubscriber.ApiKey = _apiKey;
+            unsubscriber.ListId = MailChimpServiceConfiguration.Settings.SubscriberListId;
             var emailObject = new Email { EmailValue = email };
-            subscriber.Email = emailObject;
-            subscriber.UpdateExisting = true;
+            unsubscriber.Email = emailObject;
+            unsubscriber.DeleteMember = deleteMember;
+            unsubscriber.SendGoodbye = sendGoodbye;
+            unsubscriber.SendNotify = sendNotify;
             try
             {
-                var responseData = PostHelpers.PostJson(urlTemplate, subscriber.ToString());
-                var deserializedData = JsonConvert.DeserializeObject<Email>(responseData);
-                _log.DebugFormat("MailChimpService Call : {0}, response json : {1}", subscriber, deserializedData);
-                serviceResponse.IsSuccesful = deserializedData.EmailValue != null && deserializedData.Euid != null &&
-                       deserializedData.Leid != null;
+                var responseData = PostHelpers.PostJson(urlTemplate, unsubscriber.ToString());
+                _log.DebugFormat("MailChimpService Call : {0}, response json : {1}", unsubscriber, deserializedData);
+                serviceResponse.IsSuccesful = true; //API docu states: reallistically this will always be true as errors will be thrown otherwise
                 serviceResponse.ResponseJson = responseData;
             }
             catch (WebException exception)
