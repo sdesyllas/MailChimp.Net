@@ -50,6 +50,7 @@
     <Compile Include="Domain\Grouping.cs" />
     <Compile Include="Domain\MailChimpItem.cs" />
     <Compile Include="Domain\ServiceResponse.cs" />
+    <Compile Include="Domain\Unsubscriber.cs" />
     <Compile Include="Domain\Subscriber.cs" />
     <Compile Include="IMailChimpApiService.cs" />
     <Compile Include="MailChimpApiService.cs" />
