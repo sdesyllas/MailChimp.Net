@@ -43,3 +43,7 @@
                     };
 
                 var response = mailChimpApiService.Subscribe("test@domain.com", new List() { subscribeSources, couponsGained, interests }, fields, true);
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/sdesyllas/mailchimp.net/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
