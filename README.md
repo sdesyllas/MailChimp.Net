@@ -1,6 +1,6 @@
-==============
- MailChimp.NET
-==============
+
+# MailChimp.NET
+
 
 .Net 4 wrapper Library for MailChimp newsletter API v2
 
